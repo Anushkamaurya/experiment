@@ -9,7 +9,7 @@ terraform {
 
 provider "google" {
   credentials = file("mylearning-331213-21e283592fa8.json")
-  
+
   project = "mylearning-331213"
   region  = "asia-south1"
   zone    = "asia-south1-a"
@@ -39,6 +39,6 @@ resource "google_compute_firewall" "t_firewall" {
 
   allow {
     protocol = "tcp"
-    ports    = ["22" , "80"]
+    ports    = ["22"]
   }
 }
