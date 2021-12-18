@@ -30,5 +30,10 @@ jobs:
         with:
           tf_actions_version: 1.1.2
           tf_actions_subcommand: 'plan'
+      - name: 'Terraform Apply'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 1.1.2
+          tf_actions_subcommand: 'apply -auto-approve'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
