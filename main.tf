@@ -16,7 +16,7 @@ provider "google" {
 }
 
 resource "google_compute_network" "t_vpc_network" {
-  name                    = "terra_network"
+  name                    = "terra-network"
   auto_create_subnetworks = false
 }
 
