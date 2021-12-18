@@ -41,4 +41,5 @@ resource "google_compute_firewall" "t_firewall" {
     protocol = "tcp"
     ports    = ["22"]
   }
+  source_tags = ["web"]  
 }
