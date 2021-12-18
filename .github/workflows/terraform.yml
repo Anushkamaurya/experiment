@@ -4,9 +4,12 @@ on:
     branches:
       - master
 jobs:
-  terraform init:
-    name: 'Terraform Init'
+  terraform:
+    name: 'Terraform'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: 'Checkout'
         uses: actions/checkout@master
@@ -15,27 +18,13 @@ jobs:
         with:
           tf_actions_version: 1.1.2
           tf_actions_subcommand: 'init'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  terraform Validate:
-    name: 'Terraform Validate'
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Checkout'
-        uses: actions/checkout@master
+
       - name: 'Terraform Validation'
         uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version: 1.1.2
           tf_actions_subcommand: 'validate'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  terraform Plan:
-    name: 'Terraform Plan'
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Checkout'
-        uses: actions/checkout@master
+
       - name: 'Terraform Planning'
         uses: hashicorp/terraform-github-actions@master
         with:
