@@ -37,6 +37,6 @@ resource "google_compute_firewall" "t_firewall" {
 
   allow {
     protocol = "tcp"
-    ports    = ["22"]
+    ports    = ["22" , "80"]
   }
 }
