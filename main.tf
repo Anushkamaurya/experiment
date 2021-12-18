@@ -23,7 +23,7 @@ resource "google_compute_subnetwork" "t_subnet" {
   ip_cidr_range = "192.168.0.0/20"
   region        = "asia-south1"
   network       = google_compute_network.t_vpc_network.id
-  depends_on    = ["google_compute_network.t_vpc_network"]
+  depends_on    = [google_compute_network.t_vpc_network]
  
 }
 
