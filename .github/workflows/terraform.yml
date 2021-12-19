@@ -24,11 +24,6 @@ jobs:
         with:
           tf_actions_version: 1.1.2
           tf_actions_subcommand: 'validate'
-      - name: 'Terraform Refresh'
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 1.1.2
-          tf_actions_subcommand: 'refresh'
       - name: 'Terraform Planning'
         uses: hashicorp/terraform-github-actions@master
         with:
@@ -38,7 +33,7 @@ jobs:
         uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version: 1.1.2
-          tf_actions_subcommand: 'apply'
+          tf_actions_subcommand: 'apply -destroy'
       - name: 'Terraform Destroy'
         uses: hashicorp/terraform-github-actions@master
         with:
