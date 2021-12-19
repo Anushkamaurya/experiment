@@ -4,10 +4,10 @@ on:
     branches:
       - master
 jobs:
-   terraform:
-     name: 'Terraform'
-     runs-on: ubuntu-latest
-     defaults:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    defaults:
       run:
         shell: bash
     steps:
