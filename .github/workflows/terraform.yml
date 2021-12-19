@@ -1,8 +1,8 @@
-# name: 'Terraform GitHub Actions'
-# on:
-#   push:
-#     branches:
-#        - master
+name: 'Terraform GitHub Actions'
+  on:
+    push:
+      branches:
+        - master
 jobs:
    terraform:
      name: 'Terraform'
