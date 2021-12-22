@@ -48,3 +48,22 @@ resource "google_compute_firewall" "t_firewall" {
   }
   source_tags = [var.source-tags]  
 }
+
+resource "google_compute_instance" "vm_instance" {
+  name         = var.vm-name
+  machine_type = var.machine-type
+
+
+  boot_disk {
+    initialize_params {
+      image = "debian-10-buster-v20211105"
+    }
+  }
+
+  network_interface {
+    network    =  google_compute_network.t_vpc_network.name
+    subnetwork =  google_compute_subnetwork.t_subnet.name
+    access_config {
+    }
+  }
+}

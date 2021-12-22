@@ -53,3 +53,11 @@ variable "source-tags" {
     default = "web"
 }
 
+variable "vm-name " {
+    type = string
+    default = "terraforminstance1"
+}
+variable "machine-type" {
+    type = string
+    default = "e2-medium"
+}
