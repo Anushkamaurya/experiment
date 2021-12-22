@@ -53,7 +53,7 @@ variable "source-tags" {
     default = "web"
 }
 
-variable "vm-name " {
+variable "vm-name" {
     type = string
     default = "terraforminstance1"
 }
