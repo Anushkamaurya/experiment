@@ -1,11 +1,4 @@
-variable "source" {
-    type = string
-    default = "hashicorp/google"
-}
-variable "version" {
-    type = string
-    default = "4.4.0"
-}
+
 variable "cred-name" {
     type = string
     default = "mylearning-331213-21e283592fa8.json"
