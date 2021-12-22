@@ -12,25 +12,25 @@ jobs:
         shell: bash
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@gcs-master
+        uses: actions/checkout@master
       - name: 'Terraform Init'
-        uses: hashicorp/terraform-github-actions@gcs-master
+        uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version: 1.1.2
           tf_actions_subcommand: 'init'
 
       - name: 'Terraform Validation'
-        uses: hashicorp/terraform-github-actions@gcs-master
+        uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version: 1.1.2
           tf_actions_subcommand: 'validate'
       - name: 'Terraform Planning'
-        uses: hashicorp/terraform-github-actions@gcs-master
+        uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version: 1.1.2
           tf_actions_subcommand: 'plan'
       - name: 'Terraform Apply'
-        uses: hashicorp/terraform-github-actions@gcs-master
+        uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version: 1.1.2
           tf_actions_subcommand: 'apply'
