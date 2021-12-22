@@ -7,6 +7,7 @@ terraform {
   }
   backend "gcs" {
     bucket  = "myfirst-terra-bucket"
+    credentials = "lunar-linker-331213-5e50eb5d5c05.json"
     prefix  = "terraform/state"
   }
 }
