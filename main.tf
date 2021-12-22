@@ -1,45 +1,45 @@
 terraform {
   required_providers {
     google = {
-      source = "hashicorp/google"
-      version = "4.4.0"
+      source = var.source
+      version = var.version
     }
   }
 }
 
 provider "google" {
-  credentials = file("mylearning-331213-21e283592fa8.json")
+  credentials = file(var.cred-name)
 
-  project = "mylearning-331213"
-  region  = "asia-south1"
-  zone    = "asia-south1-a"
+  project = var.project
+  region  = var.region
+  zone    = var.zone
 }
 
 resource "google_compute_network" "t_vpc_network" {
-  name                    = "terra-network"
-  auto_create_subnetworks = false
+  name                    = var.network-name
+  auto_create_subnetworks = var.auto_create_subnetworks
 }
 
 resource "google_compute_subnetwork" "t_subnet" {
-  name          = "terra-subnetwork"
-  ip_cidr_range = "192.168.0.0/20"
-  region        = "asia-south1"
+  name          = var.subnet-name
+  ip_cidr_range = var.ip_cidr_range
+  region        = var.region
   network       = google_compute_network.t_vpc_network.id
   depends_on    = [google_compute_network.t_vpc_network]
  
 }
 
 resource "google_compute_firewall" "t_firewall" {
-  name    = "terra-firewall"
+  name    = var.fire-name
   network = google_compute_network.t_vpc_network.name
 
   allow {
-    protocol = "icmp"
+    protocol = var.protocol[0]
   }
 
   allow {
-    protocol = "tcp"
-    ports    = ["22"]
+    protocol = var.protocol[1]
+    ports    = [var.ports[0] , var.ports[1]]
   }
-  source_tags = ["web"]  
+  source_tags = [var.source-tags]  
 }
