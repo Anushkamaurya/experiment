@@ -5,6 +5,10 @@ terraform {
       version = "4.4.0"
     }
   }
+  backend "gcs" {
+    bucket  = "myfirst-terra-bucket"
+    prefix  = "terraform/state"
+  }
 }
 
 provider "google" {
